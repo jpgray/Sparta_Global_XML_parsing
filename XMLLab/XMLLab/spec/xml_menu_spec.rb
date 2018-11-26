@@ -29,10 +29,9 @@ describe "XML menu" do
     # Consider children element methods - Remember to step through the data and print out to the command line if you need it
     j=0
     while j< @xml_menu.get_description.length
-      puts j
-      puts @xml_menu.get_description.length
-      if j == @xml_menu.find_index_name("Belgian Waffles")
+      if @xml_menu.get_name[j].text.upcase.include?("WAFFLES")
         expect(@xml_menu.get_description[j].text.upcase.include?("TWO")).to be true
+        expect(@xml_menu.get_description[j].text.upcase.include?("WAFFLES")).to be true
       end
       j += 1
     end
